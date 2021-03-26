@@ -12,7 +12,7 @@ Data was collected for the 500 most recently active threads. Active threads cons
 
 *Anchoring on several different areas including Covid, Disability & Appeals, Mental Health, the Aid & Attendance program, and Sleep related issues, CorEx topic modeling identified 5 additional topics for further investigation.*
 
-![corex_topics](/Users/arcarter/Desktop/Screen Shot 2021-03-25 at 10.06.16 PM.png)
+![corex_topics](images/screenshot1.png)
 
 ## Features & Techniques Used
 
