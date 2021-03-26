@@ -43,6 +43,11 @@ Data was also collected and used to analyze cosine distance and make recommendat
 * Countvectorizer
 * Cosine Distance
 
+#### *For Visualization*
+* Streamlit
+
+![](images/streamlitapp.mov)
+
 ## Workbooks
 * File0 - Data Acquisition: Data collection via Beautiful soup, traversing the landing page and then all thread sub-pages. Includes two files, one for collecting data in a tabular format, another for populating dictionaries. The latter is intended to be used for subsequent analysis.
 * File1 - EDA: Analysis via Plotly and other visualization tools to identify trends in user-identified threads and general focus areas. 
