@@ -14,37 +14,50 @@ Data was collected for the 500 most recently active threads. Active threads cons
 
 ![corex_topics](images/screenshot1.png)
 
-## Features & Techniques Used
+## Approach
 
-* Data was vectorized via Countvectorizer, then Non-negative Matrix Factorization (NMF) with triplet-grams was used to create features for all ~50k tweets
+Data was vectorized via Countvectorizer, along with additional analysis of bigrams to identify potential topics to feed the CorEx model. 
+
+![bigrams_analysis](images/screenshot9.png)
+
+This data was then used to identify the topics listed above, supporting further investigation into areas of interest, as well as enable time series investigations. 
+
+![](images/screenshot2.png)
+
+Data was also collected and used to analyze cosine distance and make recommendations for similar posts. For example, looking for posts related to diabetes reveals potentially similar issues around Hypothyroidism, as well as other chronic ailments facing Veterans. 
+
+![](images/ezgif.com-gif-maker.gif)
 
 ## Tools & Techniques Used
 
 #### *For Data Collection and EDA:*
-* Twint Package
+* Plotly
+* Matplotlib
+* Seaborn
 * Python Jupyter Notebook
 * Pandas and Numpy
-* Tableau
 
-#### *For Matrix Factorization and Topic Modeling*
+#### *For Matrix Factorization, Topic Modeling, and Post Similarity Analysis*
+* CorEx
 * Scikit-Learn NMF
-* TF-IDF
 * Countvectorizer
+* Cosine Distance
 
 ## Workbooks
-* File0 - Data Acquisition: Data collection via Twint and initial file pickling for downstream use.
-* File1 - Data Cleaning: Pre-processing of tweets, including removing special characters, combining named entities, and removing duplicates.
-* File2 - EDA and Prelim Visualizations: Initial EDA, particularly around dates and corresponding visualizations of time series for VA tweets.
-* File3 - Vectorization and Topic Modeling: Vectorization and Topic Modeling, with appendix containing other versions of both that were tested prior to settling on final.
-* File4 - Reference Scratch Notebook: Draft workbook for reference.
+* File0 - Data Acquisition: Data collection via Beautiful soup, traversing the landing page and then all thread sub-pages. Includes two files, one for collecting data in a tabular format, another for populating dictionaries. The latter is intended to be used for subsequent analysis.
+* File1 - EDA: Analysis via Plotly and other visualization tools to identify trends in user-identified threads and general focus areas. 
+* File2 - CorEx Topic Modeling: Including the final model using 5 anchor topics and 5 floating. 
+* File3 - Similar Post Finder: Cosine-distance based tool to identify similar texts, posts and key words/phrases. 
+* Scratch Notebooks: Includes additional EDA efforts, and several iterations of the the CorEx model, with different weights for key terms, as well as additional highlights in terms of specific benefit types. 
 
 ## Analysis Limitations
 
-* **Limited timeframe to ensure speed and limit complexity given time constraints** 6 months of data vs. a whole year was a deliberate decision to try and reduce complexity and ensure completion of efforts. However, doing so did limit the conclusions able to be drawn. An expansion of this analysis is planned to ensure year over year comparisons are possible.
+* **Limited to active threads.** As this is not yet being updated on a daily basis, data remains static. Additional insights into previous longer term trends were limited. 
+* **No daily refresh.** In future, the tool will be continously updated and all plots refreshed to show how trends have changed and emerged over time. 
 
 ## Possible Impacts & Future Efforts
 
-There are clear implications for gaining a better understanding of the Veteran community's needs and current concerns. While VA may have its messaging, this may or may not align with what Veterans themselves are most concerned with. This effort seeks to bridge that gap. Additionally, gaining an understanding of who the Veterans are currently using Twitter, as well as who may be influential, presents additional opportunities for more targeted Veteran outreach and effective communications.  
+This can assist with identifying those issues Veterans may be facing and find require additional support to ensure ready access to benefits.  
 
 #### *Future Efforts:*
-Expand the use of not just Twitter data, but other hubs of Veteran communications, including message boards, Reddit threads, and others.
+Create cron job to update data on daily basis and complete back-end infrastructure build to collect user inputs (for search terms) and track ongoing data updates within a NoSQL database. 
